@@ -9,7 +9,10 @@ import glob
 import codecs
 import numpy as np
 
-_DENSE_FLOAT_FEATURE_KEYS = ['Amount', 'Time', 'V01', 'V02', 'V03']
+_DENSE_FLOAT_FEATURE_KEYS = ['Amount', 'Time',
+                             'V01', 'V02', 'V03', 'V04', 'V05', 'V06', 'V07', 'V08', 'V09',
+                             'V10', 'V11', 'V12', 'V13', 'V14', 'V15', 'V16', 'V17', 'V18', 'V19',
+                             'V20', 'V21', 'V22', 'V23', 'V24', 'V25', 'V26', 'V27', 'V28']
 _LABEL_KEY = 'Class'
 
 
@@ -42,7 +45,8 @@ def run_fn(fn_args: TrainerFnArgs):
   model.fit(train_dataset, train_labels, epochs=10)
     
   #save model
-  model.save("model.h5")
+  #model.save("model.h5")
+  model.save(fn_args.serving_model_dir, save_format='tf')
 
 def _gzip_reader_fn(filenames):
   """Small utility returning a record reader that can read gzip'ed files."""
@@ -70,7 +74,7 @@ def _input_fn(file_pattern: List[Text],
   #print(transformed_feature_spec)
 
   files = glob.glob(file_pattern[0])
-  dataset = _gzip_reader_fn(files).take(10000)
+  dataset = _gzip_reader_fn(files).take(100000)
 
   dataset = dataset.map(lambda x: tf.io.parse_example(x, transformed_feature_spec))
 
