@@ -71,7 +71,6 @@ def _input_fn(file_pattern: List[Text],
   """
   transformed_feature_spec = (
       tf_transform_output.transformed_feature_spec().copy())
-  #print(transformed_feature_spec)
 
   files = glob.glob(file_pattern[0])
   dataset = _gzip_reader_fn(files).take(100000)
