@@ -33,14 +33,14 @@ def run_fn(fn_args: TrainerFnArgs):
   # train model
   log_dir = os.path.join(os.path.dirname(fn_args.serving_model_dir), 'logs')
   tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, update_freq='batch')
-  model.fit(
-    train_dataset,
-    train_labels, 
-    steps_per_epoch=fn_args.train_steps,
-    validation_data=(eval_dataset, eval_labels), 
-    validation_steps=fn_args.eval_steps,
-    callbacks=[tensorboard_callback])
-  model.fit(train_dataset, train_labels, epochs=10)
+  #model.fit(
+  #  train_dataset,
+  #  train_labels, 
+  #   steps_per_epoch=fn_args.train_steps,
+  #  validation_data=(eval_dataset, eval_labels), 
+  #  validation_steps=fn_args.eval_steps,
+  #  callbacks=[tensorboard_callback])
+  model.fit(train_dataset, train_labels, validation_data=(eval_dataset, eval_labels), epochs=10)
     
   #save model
   #model.save("model.h5")
@@ -70,7 +70,7 @@ def _input_fn(file_pattern: List[Text],
       tf_transform_output.transformed_feature_spec().copy())
 
   files = glob.glob(file_pattern[0])
-  dataset = _gzip_reader_fn(files).shuffle(3).take(10000)
+  dataset = _gzip_reader_fn(files)
 
   dataset = dataset.map(lambda x: tf.io.parse_example(x, transformed_feature_spec))
 
