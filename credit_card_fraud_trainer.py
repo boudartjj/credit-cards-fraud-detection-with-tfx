@@ -21,12 +21,10 @@ def run_fn(fn_args: TrainerFnArgs):
   tf_transform_output = tft.TFTransformOutput(fn_args.transform_output)
   train_dataset, train_labels = _input_fn(fn_args.train_files, tf_transform_output, 40)
   eval_dataset, eval_labels = _input_fn(fn_args.eval_files, tf_transform_output, 40)
-        
-  print(fn_args.serving_model_dir)
     
   #create model
   model = models.Sequential()
-  model.add(layers.Dense(100, activation='relu'))
+  model.add(layers.Dense(10, activation='relu'))
   model.add(layers.Dense(10, activation='relu'))
   model.add(layers.Dense(1, activation='relu'))
     
@@ -66,14 +64,13 @@ def _input_fn(file_pattern: List[Text],
       dataset to combine in a single batch
 
   Returns:
-    A dataset that contains (features, indices) tuple where features is a
-      dictionary of Tensors, and indices is a single Tensor of label indices.
+    Features and labels Numpy arrays.
   """
   transformed_feature_spec = (
       tf_transform_output.transformed_feature_spec().copy())
 
   files = glob.glob(file_pattern[0])
-  dataset = _gzip_reader_fn(files).take(100000)
+  dataset = _gzip_reader_fn(files).shuffle(3).take(10000)
 
   dataset = dataset.map(lambda x: tf.io.parse_example(x, transformed_feature_spec))
 
