@@ -40,7 +40,7 @@ def run_fn(fn_args: TrainerFnArgs):
   #  validation_data=(eval_dataset, eval_labels), 
   #  validation_steps=fn_args.eval_steps,
   #  callbacks=[tensorboard_callback])
-  model.fit(train_dataset, train_labels, validation_data=(eval_dataset, eval_labels), epochs=10)
+  model.fit(train_dataset, train_labels, validation_data=(eval_dataset, eval_labels), epochs=3)
     
   #save model
   #model.save("model.h5")
@@ -70,7 +70,7 @@ def _input_fn(file_pattern: List[Text],
       tf_transform_output.transformed_feature_spec().copy())
 
   files = glob.glob(file_pattern[0])
-  dataset = _gzip_reader_fn(files)
+  dataset = _gzip_reader_fn(files).take(1000)
 
   dataset = dataset.map(lambda x: tf.io.parse_example(x, transformed_feature_spec))
 
