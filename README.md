@@ -17,16 +17,21 @@ TODO
 - Solution:
   - Monitor the model performance
   - Keep the model up to date (daily / hourly…) with new data and/or new design on a monthly / weekly / daily / hourly basis depending the domain
-
 ### 1.2 Time to market from development to production
 - Challenge: complex activity (collect and clean data, code model, train model, evaluate model, deploy model to production environment)
 - Solution: automate the process from data collection to model deployment 
+<p align="center">
+  <img src="https://uplanet-public.s3.amazonaws.com/GitHub+-+credit-cards-fraud-detection-with-tfx/ML+Activities.png">
+</p>
 
 ## 2. About TFX
 - TFX is a toolkit for building ML pipelines and provides
   - a set of standard components that provide dedicated functionalities (collect data, clean data, train model, evaluate model…) 
   - A metadata store where all the outputs of each components are kept to be reused at a later stage of the pipeline
 - TFX is designed to be portable to multiple environments and orchestration frameworks, including Apache Airflow, Apache Beam and Kubeflow
+<p align="center">
+  <img src="https://uplanet-public.s3.amazonaws.com/GitHub+-+credit-cards-fraud-detection-with-tfx/TFX+Pipeline.png">
+</p>
 
 ## 3. TFX Components
 - When a Pipeline runs a TFX component, the component is executed in three phases:
@@ -34,6 +39,9 @@ TODO
   - Next, the Executor performs the component's work.
   - Then the Publisher uses the component specification and the results from the executor to store the component's outputs in the metadata store.
 - Most custom component implementations do not require you to customize the Driver or the Publisher. 
+<p align="center">
+  <img src="https://uplanet-public.s3.amazonaws.com/GitHub+-+credit-cards-fraud-detection-with-tfx/TFX+Component.png">
+</p>
 
 ## 4. TFX main components
 ### ExempleGen
