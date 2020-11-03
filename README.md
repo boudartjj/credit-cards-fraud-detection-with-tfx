@@ -42,12 +42,9 @@ The Evaluator TFX pipeline component performs deep analysis on the training resu
 ### Pusher
 The Pusher component is used to push a validated model to a deployment target
 
-## 5. Run project in Google Colab
-Google Colab: https://colab.research.google.com
-GitHub project: https://github.com/boudartjj/credit-cards-fraud-detection-with-tfx.git
-
-- Create a new project in Google Colab by click on GitHub
-- Paste GitHub Url (see above) and select boudartjj/credit-cards-fraud-detection-with-tfx
+## 5. Run the project in Google Colab
+- Create a new project in Google Colab (https://colab.research.google.com) by selecting GitHub
+- Paste GitHub Url (https://github.com/boudartjj/credit-cards-fraud-detection-with-tfx.git) and select boudartjj/credit-cards-fraud-detection-with-tfx
 - Click on the notebook link (tfx_creditcard_fraud.inpynb)
 
 The puropose of this notebook is to demonstrate an end 2 end ML TFX pipeline for payments fraud detection using Kaggle credit card fraud dataset (https://www.kaggle.com/mlg-ulb/creditcardfraud)
