@@ -1,5 +1,4 @@
 # credit-cards-fraud-detection-with-tfx
-
 Machine learning (ML) leverages our capacity to deliver new services or improve existing ones. But there is a gap to overcome between creating great models and make them available to the world. Google has developed TensorFlow Extended (TFX), an open source framework with all the components needed to define, launch and monitor your ML system.
 
 ## 1. ML industrialization challenges
