@@ -1,6 +1,16 @@
 # credit-cards-fraud-detection-with-tfx
 Machine learning (ML) leverages our capacity to deliver new services or improve existing ones. But there is a gap to overcome between creating great models and make them available to the world. Google has developed TensorFlow Extended (TFX), an open source framework with all the components needed to define, launch and monitor your ML system.
 
+The puropose of this notebook is to demonstrate an end 2 end ML TFX pipeline for payments fraud detection using Kaggle credit card fraud dataset (https://www.kaggle.com/mlg-ulb/creditcardfraud)
+- collect data from Kaggle
+- clean data
+- features engineering
+- train model
+
+TODO
+- evaluating model
+- push model in production
+
 ## 1. ML industrialization challenges
 ### 1.1 Model performance decreases over time
 - Challenge: Changes in the environment (new trends, rare conditions)
@@ -45,13 +55,3 @@ The Pusher component is used to push a validated model to a deployment target
 - Create a new project in Google Colab (https://colab.research.google.com) by selecting GitHub
 - Paste GitHub Url (https://github.com/boudartjj/credit-cards-fraud-detection-with-tfx.git) and select boudartjj/credit-cards-fraud-detection-with-tfx
 - Click on the notebook link (tfx_creditcard_fraud.inpynb)
-
-The puropose of this notebook is to demonstrate an end 2 end ML TFX pipeline for payments fraud detection using Kaggle credit card fraud dataset (https://www.kaggle.com/mlg-ulb/creditcardfraud)
-- collect data from Kaggle
-- clean data
-- features engineering
-- train model
-
-TODO
-- evaluating model
-- push model in production
