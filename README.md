@@ -50,7 +50,7 @@ GitHub project: https://github.com/boudartjj/credit-cards-fraud-detection-with-t
 - Paste GitHub Url (see above) and select boudartjj/credit-cards-fraud-detection-with-tfx
 - Click on the notebook link (tfx_creditcard_fraud.inpynb)
 
-The puropose of this notebook is to demonstrate an end 2 end ML TFX pipeline for payments fraud detection
+The puropose of this notebook is to demonstrate an end 2 end ML TFX pipeline for payments fraud detection using Kaggle credit card fraud dataset (https://www.kaggle.com/mlg-ulb/creditcardfraud)
 - collect data from Kaggle
 - clean data
 - features engineering
